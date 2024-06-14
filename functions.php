@@ -49,6 +49,11 @@
         return $atts;
     }, 10, 4 );
 
+    add_filter( 'nav_menu_submenu_css_class', function ($classes, $args, $depth){
+        $classes[] = 'header-nav__sub-menu';
+        return $classes;
+    }, 10, 3 );
+
     function custom_menu_item_classes($classes, $item, $args, $depth) {
         // Check if this is the main menu location
         if ($args->theme_location === 'main-menu') {
@@ -70,7 +75,7 @@
     add_filter('nav_menu_css_class', 'custom_footer_menu_item_classes', 10, 4);
 
 
-function custom_menu_item_output($item_output, $item, $depth, $args) {
+    function custom_menu_item_output($item_output, $item, $depth, $args) {
 
         $has_children = ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes );
 
@@ -88,12 +93,12 @@ function custom_menu_item_output($item_output, $item, $depth, $args) {
         if ($args->theme_location == 'main-menu') {
             // Construct the custom menu item HTML
             $custom_item = '<li class="header-nav__item">
-                                <a class="header-nav__link --visually" href="#" target="_blank">
-                                    <div class="header-nav__visually-impaired">
-                                      <div class="visually-impaired"></div>
-                                    </div>
-                                </a>
-                            </li>';
+                                    <a class="header-nav__link --visually" href="#" target="_blank">
+                                        <div class="header-nav__visually-impaired">
+                                          <div class="visually-impaired"></div>
+                                        </div>
+                                    </a>
+                                </li>';
 
             $items .= $custom_item;
         }

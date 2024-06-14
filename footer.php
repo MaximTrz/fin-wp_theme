@@ -1,7 +1,4 @@
         <nav class="layout__bottom-nav">
-
-
-
             <?php
             wp_nav_menu([
                 'theme_location' => 'footer-menu',
@@ -13,7 +10,7 @@
 
         </nav>
         <footer class="layout__footer">
-            <footer> Управление финансов и экономики администрации Кунгурского муниципального округа  Пермского каря. Официальный сайт.</footer>
+            <footer class="footer"> <a class="footer__link" href="#">Управление финансов и экономики администрации Кунгурского муниципального округа  Пермского каря. Официальный сайт.</a></footer>
         </footer>
         <?php wp_footer();  ?>
     </div>
